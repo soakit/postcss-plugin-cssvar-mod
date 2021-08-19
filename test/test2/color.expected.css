@@ -1,0 +1,12 @@
+.test1 {
+  color: rgb(var(--theme-color-whatever));
+  background-color: rgba(var(--theme-color-whatever), 0.1);
+  border: 12px solid rgba(var(--theme-color-whatever), 0.3);
+  box-shadow: 0 0 50px 0 rgba(var(--theme-color-whatever), 0.05);
+}
+
+.test2 {
+  box-shadow: 0 14px 16px -8px rgba(var(--theme-color-whatever), 0.2),
+    0 24px 34px 4px rgba(var(--theme-color-whatever), 0.14),
+    0 10px 44px 8px rgba(var(--theme-color-whatever), 0.12);
+}

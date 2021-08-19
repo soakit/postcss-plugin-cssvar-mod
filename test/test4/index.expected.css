@@ -1,0 +1,7 @@
+.test3 {
+  color: rgb(var(--theme-color-rgb));
+  background-color: rgba(var(--bg-color-rgb), 0.1);
+  border: 12px solid rgba(var(--bd-color-rgb), 0.3);
+  border-top: 12px solid rgba(var(--bd-color-rgb), 0.3);
+  box-shadow: 0 0 50px 0 rgba(var(--shadow-color-rgb), 0.05);
+}

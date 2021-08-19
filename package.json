@@ -1,0 +1,36 @@
+{
+  "name": "postcss-plugin-cssvar-mod",
+  "version": "1.0.0",
+  "description": "Change css variable name with suffix in rgba and rgb function.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test",
+    "release": "npmpub"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soakit/postcss-plugin-cssvar-mod.git"
+  },
+  "keywords": [
+    "postcss",
+    "plugin",
+    "css",
+    "variable",
+    "rgba"
+  ],
+  "author": "liuchang2024@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soakit/postcss-plugin-cssvar-mod/issues"
+  },
+  "homepage": "https://github.com/soakit/postcss-plugin-cssvar-mod#readme",
+  "dependencies": {
+    "postcss": "^8.3.6",
+    "postcss-message-helpers": "^2.0.0",
+    "postcss-value-parser": "^4.1.0"
+  },
+  "devDependencies": {
+    "npmpub": "^5.0.0",
+    "tape": "^5.3.1"
+  }
+}

@@ -1,0 +1,5 @@
+.test4 {
+  box-shadow: 0 14px 16px -8px rgba(var(--theme-color), 0.2),
+    0 24px 34px 4px rgba(var(--theme-color), 0.14),
+    0 10px 44px 8px rgba(var(--theme-color), 0.12);
+}
