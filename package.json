@@ -1,7 +1,10 @@
 {
   "name": "postcss-plugin-cssvar-mod",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Change css variable name with suffix in rgba and rgb function.",
+  "engines": {
+    "node": "^10 || ^12 || >=14"
+  },
   "main": "index.js",
   "scripts": {
     "test": "tape test",

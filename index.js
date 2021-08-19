@@ -2,12 +2,12 @@
  * Module dependencies.
  */
 //  https://postcss.org/api/
-var postcss = require("postcss");
-var parser = require("postcss-value-parser");
-var helpers = require("postcss-message-helpers");
-var path = require("path");
+const postcss = require("postcss");
+const parser = require("postcss-value-parser");
+const helpers = require("postcss-message-helpers");
+const path = require("path");
 
-var defaultOptions = {
+const defaultOptions = {
   suffix: "-rgb",
   functions: "rgba?", // regexp string
 };
@@ -19,10 +19,10 @@ module.exports = postcss.plugin(
   "postcss-plugin-cssvar-mod",
   function (options) {
     options = Object.assign({}, defaultOptions, options);
-    var functions = options.functions;
-    var basePath = options.basePath;
-    var include = options.include;
-    var includeFiles = [];
+    const functions = options.functions;
+    const basePath = options.basePath;
+    const include = options.include;
+    let includeFiles = [];
     if (include && include.length) {
       if (!basePath) {
         console.error("需传入 basePath ");
@@ -33,20 +33,20 @@ module.exports = postcss.plugin(
       });
     }
 
-    var res = [];
+    const res = [];
     return function (style, result) {
-      var file = style.source.input.file;
+      const file = style.source.input.file;
       // only deal with include files when includeFiles exists
-      if (includeFiles.length && includeFiles.indexOf(file) === -1) {
+      if (includeFiles.length && !includeFiles.includes(file)) {
         return;
       }
 
       style.walkDecls(function (decl) {
-        var value = decl.value;
+        const value = decl.value;
         if (
           !value ||
           !new RegExp(functions + "\\(").test(value) ||
-          value.indexOf("var(") === -1
+          !value.includes("var(")
         ) {
           return;
         }
@@ -79,21 +79,21 @@ function transform(string, options, res) {
         return;
       }
 
-      var varNode =
+      const varNode =
         node.nodes &&
         node.nodes.find(
           (item) => item.type === "function" && item.value === "var"
         );
       if (varNode && varNode.nodes) {
-        var wordNode = varNode.nodes[0];
+        const wordNode = varNode.nodes[0];
         if (
           wordNode &&
           wordNode.type === "word" &&
           !wordNode.value.endsWith(options.suffix)
         ) {
-          var oldValue = wordNode.value;
-          var newValue = wordNode.value + options.suffix;
-          if (!res.map((i) => i.oldValue).includes(oldValue)) {
+          const oldValue = wordNode.value;
+          const newValue = wordNode.value + options.suffix;
+          if (!res.some((i) => i.oldValue === oldValue)) {
             res.push({
               oldValue: oldValue,
               newValue: newValue,
