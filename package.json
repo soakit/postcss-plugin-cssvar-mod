@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "tape test",
+    "prerelease": "npm run test",
     "release": "npm publish --access public --registry=https://registry.npmjs.org"
   },
   "repository": {
