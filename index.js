@@ -38,7 +38,6 @@ module.exports = postcss.plugin(
       var file = style.source.input.file;
       // only deal with include files when includeFiles exists
       if (includeFiles.length && includeFiles.indexOf(file) === -1) {
-        options.onFinish && options.onFinish(res);
         return;
       }
 
@@ -79,8 +78,6 @@ function transform(string, options, res) {
       ) {
         return;
       }
-
-      // console.log('\n--node--\n', JSON.stringify(node));
 
       var varNode =
         node.nodes &&
